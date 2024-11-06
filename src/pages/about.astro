@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
-
 ---
 
 <Layout title="About - Shumail Malik">
@@ -11,31 +10,23 @@ import Navigation from '../components/Navigation.astro';
     <h1 class="text-4xl font-bold mb-8">About Me</h1>
     <div class="flex justify-between items-center">
       <div class="prose prose-lg">
-        <!-- Your existing content -->
+        <p class="mb-6">
+          Hello! My name is Shumail Malik. <br>
+          I am currently an undergraduate student at the <a href="https://www.math.iitb.ac.in/"> Department of Mathematics, IIT Bombay. </a><br>
+          Here is a list of some things I find interesting.
+          <br><br>
+          At JNV, one of the coolest experiences was the migration program, like a Semester Exchange within India, where I got to spend 9th grade in Jammu & Kashmir. It was an incredible way to dive into different cultures and really opened my eyes to how beautifully diverse our country is!
+          <br><br>
+          I've been involved in various entrepreneurial ventures, including co-founding Gloria Coffee - a 20min Coffee delivery startup for Indian campuses. Later, I worked on Sponsify AI, a marketplace for brands and influencers for brand deals - we got an initial grant from <a href="https://www.dsse.iitb.ac.in/mentoring">IDEAS program</a>. Recently, I've been diving into personal projects using no-code and low-code tools—so much fun to see ideas come alive without coding every line from scratch!
+          <br><br>
+          I’m all about spotting little everyday problems and turning them into valuable, impactful products. My goal? To build things that help startups grow and make life just a little better for the people who use them!
+        </p>
       </div>
+      
+      <!-- Add Profile Image Here -->
       <div class="rounded-full w-32 h-32 overflow-hidden">
-        <img src="src/Assets/shumailpfp.jpeg" alt="better luck Next tym :)" class="object-cover h-full w-full" />
+        <img src="src/Assets/shumailpfp.jpeg" alt="better luck Next time :)" class="object-cover h-full w-full" />
       </div>
-    </div>
-    
-    <div class="prose prose-lg">
-      <style>
-        a { color: #006989; }             /* Unvisited link */
-        a:visited { color: #006989; }      /* Visited link */
-        a:hover { color: #005C78; }        /* Hovered link */
-        a:active { color: #E88D67; }       /* Active link */
-      </style>
-      <p class="mb-6">
-        Hello! My name is Shumail Malik. <br>
-        I am currently an undergraduate student at the <a color: blue; href="https://www.math.iitb.ac.in/"> Department of Mathematics, IIT Bombay. </a><br>
-        Here is a list of some things I find interesting.
-        <br><br>
-        At JNV, One of the coolest experiences was the migration program, like a Semester Exchange within India, where I got to spend 9th grade in Jammu & Kashmir. It was an incredible way to dive into different cultures and really opened my eyes to how beautifully diverse our country is!
-        <br><br>
-        I've been involved in various entrepreneurial ventures, including co-founding Gloria Coffee - a 20min Coffee delivery stratup for Indian campuses, later i worked on Sponisfy AI, a marketplace for brands and influencers for brand deals - we got initial grant from <a href="https://www.dsse.iitb.ac.in/mentoring">IDEAS program</a>, Recently, I've been diving into personal projects using no-code and low-code tools—so much fun to see ideas come alive without coding every line from scratch!
-        <br><br>
-        I’m all about spotting little everyday problems and turning them into valuable, impactful products. My goal? To build things that help startups grow and make life just a little better for the people who use them!
-      </p>
     </div>
   </main>
 </Layout>
