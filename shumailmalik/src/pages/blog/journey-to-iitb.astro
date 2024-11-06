@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+
+const blogPost = {
+  title: "The Journey from Rampur to IIT Bombay",
+  date: "2024-01-15",
+  content: `My journey from a small town in Uttar Pradesh to the prestigious halls of IIT Bombay is a testament to perseverance and the unwavering support of my parents. Despite coming from a humble background where my mother only knew Urdu and my father could barely sign his name, their determination to provide me with quality education never wavered.
+
+Starting from a small local school in Bareilly, my academic journey took an important turn when I secured admission to Sacred Hearts. It was here that I discovered not just my academic capabilities but also my athletic prowess, winning a gold medal in hurdles within my first week.
+
+The real turning point came with my admission to Jawahar Navodaya Vidyalaya, where I consistently ranked among the top performers. The migration program at JNV opened my eyes to different cultures and experiences across India, particularly in regions like Doda, Reasi, and Himachal Pradesh.
+
+My path to IIT Bombay wasn't without its challenges. Despite initial success in JEE preparation, I faced significant setbacks and confidence issues. However, these experiences taught me valuable lessons about resilience and the importance of maintaining perspective during difficult times.
+
+Today, at IIT Bombay, I continue to pursue excellence while exploring my entrepreneurial interests. My journey has taught me that success isn't just about academic achievements, but about the courage to pursue one's dreams despite obstacles.`
+};
+---
+
+<Layout title={blogPost.title}>
+  <Navigation />
+  
+  <main class="max-w-3xl mx-auto px-8 py-16">
+    <article class="prose prose-lg">
+      <h1 class="text-4xl font-bold mb-4">{blogPost.title}</h1>
+      <div class="text-gray-600 mb-8">
+        <time datetime={blogPost.date}>{new Date(blogPost.date).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })}</time>
+      </div>
+      
+      {blogPost.content.split('\n\n').map((paragraph) => (
+        <p class="mb-6 text-gray-800 leading-relaxed">{paragraph}</p>
+      ))}
+    </article>
+    
+    <div class="mt-16 border-t-2 border-[#1a1a1a] pt-8">
+      <a 
+        href="/blog"
+        class="inline-block px-6 py-3 border-2 border-[#1a1a1a] hover:bg-[#d4d4d4] transition-colors"
+      >
+        ← Back to Blog
+      </a>
+    </div>
+  </main>
+</Layout>

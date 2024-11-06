@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import BlogCard from '../../components/BlogCard.astro';
+
+const blogs = [
+  {
+    title: "The Paradox of New Beginnings",
+    excerpt: "Exploring why it's challenging to start something new alongside important goals, and whether these pursuits truly conflict with our main objectives.",
+    date: "2020-04-09-blog.pdf",
+    image: "/blog1.jpg",
+    href: "/blog/paradox-of-new-beginnings",
+    content: `Today, I found myself reflecting on this recurring dilemma in life: why is it so hard to start something new, even when we know it could be beneficial? It's like there's always a reason not to begin, especially when there's something big or critical coming up—like board exams, or JEE. When the stakes are high, every other thing feels like a potential distraction, even if it's just reading a book for 30 minutes a day.
+
+Take a hobby, for example—someone might want to start reading daily or pick up a new activity like going to the gym or playing badminton. Yet they hesitate, thinking it'll pull them away from their main goal. It's like they fear it could be an excuse to avoid the hard work of the primary focus. But I wonder if that's really the case. Isn't there a chance that doing these things could actually help with the main goal instead of detracting from it?
+
+For instance, if someone exercises regularly, they'd be physically fit and energized. That rush of energy from the gym could bring positivity to their day, maybe even help them study more effectively than on the days they just roll out of bed and dive into their books. And activities like badminton—couldn't the feeling of a win or a loss provide some extra motivation? Maybe those small emotional highs and lows would make them more resilient, more ready to take on the challenges of their main goal.
+
+It makes me wonder: do we lose more by sidelining these small passions, thinking they'll interfere? Or could the right balance actually make us stronger and more focused?`
+  },
+  {
+    title: "The Future of Design",
+    excerpt: "Exploring upcoming trends in digital design and user interfaces.",
+    date: "2020-04-08-blog.pdf",
+    image: "/blog2.jpg",
+    href: "/blog/future-of-design"
+  },
+  {
+    title: "Mastering TypeScript",
+    excerpt: "Essential tips and tricks for TypeScript development.",
+    date: "2020-04-07-blog.pdf",
+    image: "/blog3.jpg",
+    href: "/blog/mastering-typescript"
+  },
+  {
+    title: "Building Better UIs",
+    excerpt: "Best practices for creating intuitive user interfaces.",
+    date: "2020-04-06-blog.pdf",
+    image: "/blog4.jpg",
+    href: "/blog/building-better-uis"
+  }
+];
+---
+
+<Layout title="Blog - Mac's Portfolio">
+  <Navigation />
+  
+  <main class="max-w-6xl mx-auto px-8 py-16">
+    <!-- Header -->
+    <div class="mb-16">
+      <h1 class="text-6xl font-bold mb-4">Blog</h1>
+      <p class="text-xl text-gray-700">Thoughts, learnings, and discoveries.</p>
+    </div>
+
+    <!-- Blog Posts Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {blogs.map(blog => (
+        <article class="border-2 border-[#1a1a1a]">
+          <BlogCard 
+            date={blog.date}
+            image={blog.image}
+            href={blog.href}
+          />
+          <div class="p-6">
+            <h2 class="text-2xl font-bold mb-3">
+              <a href={blog.href} class="hover:underline">
+                {blog.title}
+              </a>
+            </h2>
+            <p class="text-gray-700">{blog.excerpt}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Pagination -->
+    <div class="mt-16 flex justify-center gap-4">
+      <button 
+        class="px-6 py-3 border-2 border-[#1a1a1a] bg-[#d4d4d4] opacity-50 cursor-not-allowed"
+        disabled
+      >
+        Previous
+      </button>
+      <button 
+        class="px-6 py-3 border-2 border-[#1a1a1a] hover:bg-[#d4d4d4] transition-colors"
+      >
+        Next
+      </button>
+    </div>
+  </main>
+</Layout>

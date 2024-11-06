@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+const projects = [
+  {
+    title: "Gloria Coffee",
+    description: "Co-founded and scaled coffee business operations, achieving 3x sales growth in 8 months through strategic planning and execution.",
+    image: "/project1.jpg",
+    date: "2023",
+    href: "/projects/gloria-coffee"
+  },
+  {
+    title: "Ad-Tech Venture",
+    description: "Provided strategic guidance for an Ad-tech startup, successfully securing IDEAS program grant worth ₹2.5L with mentorship opportunities.",
+    image: "/project2.jpg",
+    date: "2023",
+    href: "/projects/adtech-venture"
+  }
+];
+
+const blogs = [
+  {
+    title: "The Journey from Rampur to IIT Bombay",
+    excerpt: "A personal narrative about academic excellence, challenges, and perseverance.",
+    date: "2024-01-15",
+    image: "/blog1.jpg",
+    href: "/blog/journey-to-iitb"
+  },
+  {
+    title: "The Paradox of New Beginnings",
+    excerpt: "Reflecting on the challenges of starting something new while pursuing important goals.",
+    date: "2024-01-10",
+    image: "/blog2.jpg",
+    href: "/blog/paradox-of-new-beginnings"
+  }
+];
+---
+
+<Layout title="Shumail Malik's Portfolio">
+  <Navigation />
+  
+  <main class="max-w-6xl mx-auto px-8 py-16">
+    <!-- Hero Section -->
+    <section class="flex justify-between items-start mb-20">
+      <div class="max-w-xl">
+        <h1 class="text-6xl font-bold mb-4">
+          Hello.<br/>
+          I'm Shumail.
+        </h1>
+        <p class="text-lg mb-6">
+          Welcome to my personal website! 
+        </p>
+        <a 
+          href="/about"
+          class="inline-block px-6 py-3 border-2 border-[#1a1a1a] hover:bg-[#d4d4d4] transition-colors"
+        >
+          More About Me
+        </a>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="mb-20">
+      <h2 class="text-4xl font-bold mb-8">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {projects.map(project => (
+          <ProjectCard {...project} />
+        ))}
+      </div>
+    </section>
+
+    <div class="bg-[#e6e6e6] -mx-8 px-8 py-20 border-y-2 border-[#1a1a1a]">
+      <!-- Blog Section -->
+      <section>
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-4xl font-bold">From the blog</h2>
+          <a href="/blog" class="text-[#1a1a1a] hover:underline">
+            View all blog posts
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+          {blogs.map(blog => (
+            <BlogCard 
+              date={blog.date}
+              image={blog.image}
+              href={blog.href}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

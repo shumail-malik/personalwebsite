@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+
+const blogPost = {
+  title: "The Paradox of New Beginnings",
+  date: "2020-04-09",
+  content: `Today, I found myself reflecting on this recurring dilemma in life: why is it so hard to start something new, even when we know it could be beneficial? It's like there's always a reason not to begin, especially when there's something big or critical coming up—like board exams, or JEE. When the stakes are high, every other thing feels like a potential distraction, even if it's just reading a book for 30 minutes a day.
+
+Take a hobby, for example—someone might want to start reading daily or pick up a new activity like going to the gym or playing badminton. Yet they hesitate, thinking it'll pull them away from their main goal. It's like they fear it could be an excuse to avoid the hard work of the primary focus. But I wonder if that's really the case. Isn't there a chance that doing these things could actually help with the main goal instead of detracting from it?
+
+For instance, if someone exercises regularly, they'd be physically fit and energized. That rush of energy from the gym could bring positivity to their day, maybe even help them study more effectively than on the days they just roll out of bed and dive into their books. And activities like badminton—couldn't the feeling of a win or a loss provide some extra motivation? Maybe those small emotional highs and lows would make them more resilient, more ready to take on the challenges of their main goal.
+
+It makes me wonder: do we lose more by sidelining these small passions, thinking they'll interfere? Or could the right balance actually make us stronger and more focused?`
+};
+---
+
+<Layout title={blogPost.title}>
+  <Navigation />
+  
+  <main class="max-w-3xl mx-auto px-8 py-16">
+    <article class="prose prose-lg">
+      <h1 class="text-4xl font-bold mb-4">{blogPost.title}</h1>
+      <div class="text-gray-600 mb-8">
+        <time datetime={blogPost.date}>{new Date(blogPost.date).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })}</time>
+      </div>
+      
+      {blogPost.content.split('\n\n').map((paragraph) => (
+        <p class="mb-6 text-gray-800 leading-relaxed">{paragraph}</p>
+      ))}
+    </article>
+    
+    <div class="mt-16 border-t-2 border-[#1a1a1a] pt-8">
+      <a 
+        href="/blog"
+        class="inline-block px-6 py-3 border-2 border-[#1a1a1a] hover:bg-[#d4d4d4] transition-colors"
+      >
+        ← Back to Blog
+      </a>
+    </div>
+  </main>
+</Layout>

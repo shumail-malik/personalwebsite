@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: "Possimus",
+    description: "Officiis sit numquam fugiat sint molestiae id. Est modi est ex debitis dolorem. Ut voluptate quod rem dolore sunt molestiae maiores.",
+    image: "/project1.jpg",
+    date: "2020-04-08-project.html",
+    href: "/projects/possimus",
+    github: "https://github.com/username/possimus",
+    tags: ["React", "TypeScript", "Node.js"]
+  },
+  {
+    title: "Dolorum Ullam Totam",
+    description: "Consequatur consequatur quisquam sit velit. Distinctio sunt omnis. Vitae et sint repellendus consectetur cumque.",
+    image: "/project2.jpg",
+    date: "2020-04-08-project.html",
+    href: "/projects/dolorum-ullam-totam",
+    github: "https://github.com/username/dolorum",
+    tags: ["Vue", "Firebase", "TailwindCSS"]
+  },
+  {
+    title: "Retro Chat App",
+    description: "A real-time chat application with a nostalgic 90s interface. Built with modern technologies while maintaining vintage aesthetics.",
+    image: "/project3.jpg",
+    date: "2020-04-07-project.html",
+    href: "/projects/retro-chat",
+    github: "https://github.com/username/retro-chat",
+    tags: ["WebSocket", "Express", "MongoDB"]
+  },
+  {
+    title: "Vintage Portfolio",
+    description: "A collection of retro-styled portfolio templates for developers who appreciate the classic computing era.",
+    image: "/project4.jpg",
+    date: "2020-04-06-project.html",
+    href: "/projects/vintage-portfolio",
+    github: "https://github.com/username/vintage-portfolio",
+    tags: ["Astro", "TailwindCSS"]
+  }
+];
+---
+
+<Layout title="Projects - Mac's Portfolio">
+  <Navigation />
+  
+  <main class="max-w-6xl mx-auto px-8 py-16">
+    <!-- Header -->
+    <div class="mb-16">
+      <h1 class="text-6xl font-bold mb-4">Projects</h1>
+      <p class="text-xl text-gray-700">A collection of my work and experiments.</p>
+    </div>
+
+    <!-- Filter Tags -->
+    <div class="mb-16">
+      <div class="flex flex-wrap gap-4">
+        {["All", "React", "Vue", "Node.js", "TypeScript", "Astro"].map(tag => (
+          <button class="px-6 py-3 border-2 border-[#1a1a1a] hover:bg-[#d4d4d4] transition-colors">
+            {tag}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {projects.map(project => (
+        <article class="border-2 border-[#1a1a1a] group">
+          <div class="border-b-2 border-[#1a1a1a] p-1 bg-[#d4d4d4] flex items-center gap-2">
+            <div class="w-2 h-2 rounded-full bg-[#1a1a1a]"></div>
+            <div class="w-2 h-2 rounded-full bg-[#1a1a1a]"></div>
+            <span class="text-sm font-mono">{project.date}</span>
+          </div>
+          
+          <div class="aspect-video border-b-2 border-[#1a1a1a] relative group-hover:opacity-90 transition-opacity">
+            <img src={project.image} alt={project.title} class="w-full h-full object-cover" />
+          </div>
+          
+          <div class="p-6">
+            <h2 class="text-2xl font-bold mb-3">{project.title}</h2>
+            <p class="mb-4 text-gray-700">{project.description}</p>
+            
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              {project.tags.map(tag => (
+                <span class="px-4 py-2 text-sm border-2 border-[#1a1a1a] bg-[#d4d4d4]">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="flex gap-4">
+              <a 
+                href={project.href}
+                class="px-6 py-3 border-2 border-[#1a1a1a] hover:bg-[#d4d4d4] transition-colors"
+              >
+                View project
+              </a>
+              <a 
+                href={project.github}
+                class="px-6 py-3 border-2 border-[#1a1a1a] hover:bg-[#d4d4d4] transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </main>
+</Layout>

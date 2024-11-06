@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Personal portfolio and blog" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-[#f0f0f0]">
+    <div class="min-h-screen border-8 border-[#1a1a1a]">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --retro-bg: #e6e6e6;
+    --retro-border: #1a1a1a;
+    --retro-button: #d4d4d4;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: #f0f0f0;
+  }
+  body {
+    color: var(--retro-border);
+  }
+</style>
